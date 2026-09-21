@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Senhas</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="app-title">
+      <header class="card-header">
+        <p class="eyebrow">Local · offline</p>
+        <h1 id="app-title">Gerador de Senhas</h1>
+      </header>
+
+      <p id="password-output" class="password" aria-live="polite">—</p>
+
+      <div
+        class="strength"
+        id="strength"
+        data-level="strong"
+        role="meter"
+        aria-label="Força da senha"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="70"
+      >
+        <div class="strength-header">
+          <span>Força</span>
+          <span id="strength-label">Forte</span>
+        </div>
+        <div class="strength-track" aria-hidden="true">
+          <span id="strength-bar" class="strength-bar"></span>
+        </div>
+      </div>
+
+      <div class="control">
+        <div class="control-header">
+          <label for="length-input">Comprimento</label>
+          <span id="length-value">16</span>
+        </div>
+        <input
+          type="range"
+          id="length-input"
+          min="8"
+          max="64"
+          value="16"
+          aria-valuemin="8"
+          aria-valuemax="64"
+          aria-valuenow="16"
+        >
+      </div>
+
+      <fieldset class="charsets">
+        <legend>Tipos de caractere</legend>
+        <label class="toggle">
+          <input type="checkbox" id="opt-lower" checked>
+          <span class="toggle-ui" aria-hidden="true"></span>
+          <span class="toggle-copy">
+            <span>Minúsculas</span>
+            <span class="hint">a–z</span>
+          </span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="opt-upper" checked>
+          <span class="toggle-ui" aria-hidden="true"></span>
+          <span class="toggle-copy">
+            <span>Maiúsculas</span>
+            <span class="hint">A–Z</span>
+          </span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="opt-digits" checked>
+          <span class="toggle-ui" aria-hidden="true"></span>
+          <span class="toggle-copy">
+            <span>Números</span>
+            <span class="hint">0–9</span>
+          </span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="opt-symbols" checked>
+          <span class="toggle-ui" aria-hidden="true"></span>
+          <span class="toggle-copy">
+            <span>Símbolos</span>
+            <span class="hint">!@#$</span>
+          </span>
+        </label>
+      </fieldset>
+
+      <p id="copy-status" class="status" role="status" aria-live="polite"></p>
+
+      <div class="actions">
+        <button type="button" id="generate-btn">Gerar</button>
+        <button type="button" id="copy-btn" class="secondary">Copiar</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/main_script.js"></script>
+</body>
+</html>
